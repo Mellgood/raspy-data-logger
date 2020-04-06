@@ -83,6 +83,7 @@ It is time to setup our query so you have to change following parameters, clicki
 * **Time column:** "timestamp"
 * **Metric column:** uom
 * **SELECT:** Column: temperature
+
 ![AAAAAAAAAA](img/11_fill-query.png)
 
 Then you can change time-settings. Recommended are **refresh rate 5s** and show **last 30 minutes**:
