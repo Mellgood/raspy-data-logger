@@ -5,24 +5,8 @@ from gpiozero import CPUTemperature
 import datetime
 
 # Connect to a Postgres database.
-pg_db = peewee.PostgresqlDatabase('postgres', user='postgres', password='pipponde',
+pg_db = peewee.PostgresqlDatabase('postgres', user='postgres', password='raspberry',
                                   host='database', port=5432)
-
-def testdb():
-    try:
-        User.create_table()
-    except peewee.OperationalError:
-        print ("User table already exists!")
-
-    try:
-        TemperatureMeasure.create_table()
-    except peewee.OperationalError:
-        print ("CpuTemperatures table already exists!")
-
-    a = User()
-    a.username = "carlo"
-    a.save(force_insert=True)
-
 
 
 class BaseModel(peewee.Model):
@@ -57,6 +41,7 @@ if __name__ == '__main__':
 
     init_db()
 
+    #just cycle over time. TODO: move configs out of here
     while(True):
         cpu = CPUTemperature()
         t=TemperatureMeasure()
